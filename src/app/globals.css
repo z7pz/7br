@@ -2,32 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+	:root {
+		--background: 210 46% 98%;
+		--foreground: 210 65% 3%;
+		--muted: 210 18% 85%;
+		--muted-foreground: 210 8% 33%;
+		--popover: 210 46% 98%;
+		--popover-foreground: 210 65% 3%;
+		--card: 210 46% 97%;
+		--card-foreground: 210 65% 2%;
+		--border: 210 4% 90%;
+		--input: 210 4% 90%;
+		--primary: 210 35% 21%;
+		--primary-foreground: 210 35% 81%;
+		--secondary: 210 2% 82%;
+		--secondary-foreground: 210 2% 22%;
+		--accent: 210 8% 73%;
+		--accent-foreground: 210 8% 13%;
+		--destructive: 3 88% 45%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 210 35% 21%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 210 59% 3%;
+		--foreground: 210 10% 100%;
+		--muted: 210 18% 15%;
+		--muted-foreground: 210 8% 67%;
+		--popover: 210 59% 3%;
+		--popover-foreground: 210 10% 100%;
+		--card: 210 59% 4%;
+		--card-foreground: 0 0% 100%;
+		--border: 210 4% 11%;
+		--input: 210 4% 11%;
+		--primary: 210 35% 21%;
+		--primary-foreground: 210 35% 81%;
+		--secondary: 210 17% 11%;
+		--secondary-foreground: 210 17% 71%;
+		--accent: 210 26% 18%;
+		--accent-foreground: 210 26% 78%;
+		--destructive: 3 88% 45%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 210 35% 21%;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.image-container::before {
+  content: ''; /* Necessary for pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 0px 300px hsl(var(--background)); /* Apply inner shadow */
+  pointer-events: none; /* Allow clicks to pass through */
 }
