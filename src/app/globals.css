@@ -58,14 +58,23 @@
 	}
 }
 
+body {
+	scroll-behavior: smooth;
+	
+	/* background-image: url(https://cdn.discordapp.com/attachments/1098457500333908060/1276685693220946063/874b068e0b77351a.png?ex=66ca6db4&is=66c91c34&hm=3b166f3d1aa0a3a1f925623b4097d1131b1970179202b25054237595f5c2dbaa&); */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 
 .image-container::before {
-  content: ''; /* Necessary for pseudo-element */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0px 0px 300px hsl(var(--background)); /* Apply inner shadow */
-  pointer-events: none; /* Allow clicks to pass through */
+	content: ""; /* Necessary for pseudo-element */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: inset 0px 0px 300px hsl(var(--background)); /* Apply inner shadow */
+	pointer-events: none; /* Allow clicks to pass through */
 }

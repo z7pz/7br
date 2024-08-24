@@ -16,11 +16,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="ar" dir="rtl">
 			<body className={alexandria.className}>
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="light"
+					forcedTheme="light"
 					enableSystem
 					disableTransitionOnChange
 				>
