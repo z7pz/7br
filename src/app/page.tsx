@@ -16,7 +16,7 @@ function sleep(ms: number) {
 }
 
 export default async function Home() {
-	// await sleep(5000);
+	await sleep(5000);
 	return (
 		<>
 			<video
