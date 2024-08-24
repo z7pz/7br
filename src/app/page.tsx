@@ -16,7 +16,7 @@ function sleep(ms: number) {
 }
 
 export default async function Home() {
-	await sleep(5000);
+	// await sleep(5000);
 	return (
 		<>
 			<video
@@ -71,15 +71,31 @@ function Course() {
 
 const partners = [
 	{
-		icon: "https://cdn.discordapp.com/avatars/1227001362831769652/1208f16c2a977f586eb19195b7607ed9.png?size=1024",
-		name: "Kasper Maker",
-		members: "1050",
+		icon: "/partners/IQ.png",
+		name: "IQ Mafia",
+		members: "27K",
+	},
+	{
+		icon: "/partners/aros.png",
+		name: "Aros Service",
+		members: "3.5K",
 	},
 
 	{
+		icon: "/partners/luna.png",
+		name: "Luna Bot",
+		members: "1.3M",
+		label: "خادم",
+	},
+	{
+		icon: "/partners/7br.png",
+		name: "حبر",
+		members: "2K",
+	},
+	{
 		icon: "https://cdn.discordapp.com/avatars/1227001362831769652/1208f16c2a977f586eb19195b7607ed9.png?size=1024",
 		name: "Kasper Maker",
-		members: "1050",
+		members: "1K",
 	},
 ];
 
@@ -100,7 +116,7 @@ function Partners() {
 
 			<div className="max-w-[1000px] relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
 
-				<Marquee className="[--duration:20s] mt-10">
+				<Marquee className="[--duration:30s] mt-10">
 					{partners.map((server, i) => (
 						<ServerCard server={server} />
 					))}
@@ -118,7 +134,7 @@ function ServerCard({ server }: { server: (typeof partners)[number] }) {
 					<TooltipTrigger>
 						<div className="flex gap-4 min-w-fit cursor-pointer hover:bg-accent rounded-sm px-3 py-1.5 w-64">
 							<img
-								className="inline-block h-10 w-10 rounded-sm ring-2 ring-background"
+								className="inline-block h-10 rounded-sm ring-2 ring-secondary bg-secondary"
 								src={server.icon}
 								alt="Image Description"
 							/>
@@ -127,14 +143,14 @@ function ServerCard({ server }: { server: (typeof partners)[number] }) {
 									{server.name}
 								</div>
 								<div className="text-sm text-gray-500">
-									{server.members} members
+									<span className="font-bold">{server.members}</span> {server.label || "عضو"}
 								</div>
 							</div>
 						</div>
 					</TooltipTrigger>
 
 					<TooltipContent className="" side="bottom">
-						<strong>{server.members}</strong> members
+						<strong>{server.members}</strong> {server.label || "عضو"}
 					</TooltipContent>
 				</div>
 			</Tooltip>
@@ -144,7 +160,7 @@ function ServerCard({ server }: { server: (typeof partners)[number] }) {
 
 export function Header() {
 	return (
-		<header className="fixed top-0 z-50 w-full ">
+		<header className="fixed top-0 z-50 w-full backdrop-blur-lg bg-black/05">
 			<div className="container flex h-16 items-center justify-between">
 				<Link href="#" className="flex items-center" prefetch={false}>
 					<img src="/logo-no-bg.png" className="h-12" alt={""} />
